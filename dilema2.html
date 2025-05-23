@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilema del Hombre Gordo | Trolley Simulator</title>
+    <link rel="stylesheet" href="dilema2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Volver a INICIO</a>
+        <a href="comenzar.html" class="volver-dilemas">Volver a Dilemas</a>
+    </nav>
+    <video autoplay loop muted class="fondovideo">
+        <source src="fondoinicio.mp4" type="video/mp4" />
+    </video>
+
+    <div class="main-content">
+        <section class="contenido">   
+            <h1 class="titulo-dilema">EL HOMBRE GORDO</h1>
+        </section>
+        
+        <section class="escenario">
+
+            
+            <div class="descripcion-dilema">
+                <p>Estás en un puente sobre la vía cuando ves el tranvía descontrolado acercarse. En la vía hay cinco personas atadas. Junto a ti hay un hombre muy grande cuya masa podría detener el tranvía si lo empujas. ¿Lo harías?</p>
+                
+                <div class="opciones">
+                    <div class="opcion">
+                        <h3>Opción 1</h3>
+                        <p>No intervenir y dejar que el tranvía mate a las cinco personas</p>
+                        <button class="boton-opcion" data-consecuencia="no-intervenir">Elegir esta opción</button>
+                    </div>
+                    
+                    <div class="opcion">
+                        <h3>Opción 2</h3>
+                        <p>Empujar al hombre gordo para detener el tranvía, salvando a cinco pero matando a uno</p>
+                        <button class="boton-opcion" data-consecuencia="intervenir">Elegir esta opción</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <section class="consecuencia hidden" id="consecuencia">
+            <h2>Tus Decisiones Tienen Consecuencias</h2>
+            <div id="contenido-consecuencia"></div>
+            <button class="boton-reflexion">Reflexionar sobre esta decisión</button>
+        </section>
+                       <section class="otras-opciones">
+            <a href="index.html" class="boton-variacion">Volver al Inicio</a>
+        </section>
+    </div>
+
+    <script>
+        // ... (el script anterior se mantiene igual) ...
+
+        // Agregar funcionalidad al nuevo botón
+      
+           
+            
+            // Cambiar las opciones
+            
+            
+            // Actualizar las consecuencias en el script
+            const botones = document.querySelectorAll('.boton-opcion');
+            botones.forEach(boton => {
+                boton.addEventListener('click', function() {
+                    const consecuencia = this.getAttribute('data-consecuencia');
+                    const contenido = document.getElementById('contenido-consecuencia');
+                    
+                    if(consecuencia.includes('version2')) {
+                        if(consecuencia === 'no-intervenir-version2') {
+                            contenido.innerHTML = `
+                                <p>El tranvía mata a las cinco personas. El hombre gordo sobrevive.</p>
+                                <p><strong>Filosofía:</strong> Esta opción evita la acción directa de empujar, pero resulta en mayor pérdida de vidas. Desde la ética deontológica, no cometiste un acto violento.</p> <p>¿Habrías actuado diferente si el hombre gordo fuera un criminal o un ser querido?</p>
+                            `;
+                        } else {
+                            contenido.innerHTML = `
+                                <p>El tranvía se detiene al chocar con el hombre gordo. Las cinco personas se salvan.</p>
+                                <p><strong>Filosofía:</strong> Elegiste el utilitarismo (salvar más vidas), pero con un coste emocional mayor: tuviste que empujar físicamente a alguien.</p>
+                                <p>Estudios muestran que solo el 10% de las personas elegirían esta opción, frente al 90% que accionaría una palanca.</p>
+
+                            `;
+                        }
+                    }
+                });
+            });
+            
+            // Desplazar hacia arriba para ver los cambios
+            window.scrollTo({top: 0, behavior: 'smooth'});
+      
+    </script>
+    
+        
+    </div>
+
+    <script>
+        document.querySelectorAll('.boton-opcion').forEach(boton => {
+            boton.addEventListener('click', function() {
+                const consecuencia = this.getAttribute('data-consecuencia');
+                const seccionConsecuencia = document.getElementById('consecuencia');
+                const contenido = document.getElementById('contenido-consecuencia');
+                
+                // Remover clase hidden para mostrar la sección
+                seccionConsecuencia.classList.remove('hidden');
+                
+                // Desplazarse a la sección de consecuencia
+                seccionConsecuencia.scrollIntoView({ behavior: 'smooth' });
+                
+                // Mostrar la consecuencia correspondiente
+                if(consecuencia === 'no-intervenir') {
+                    contenido.innerHTML = `
+                        <p>El tranvía mata a las cinco personas. El hombre gordo sobrevive.</p>
+                        <p><strong>Filosofía detrás de esto:</strong> Esta opción evita la acción directa de empujar, pero resulta en mayor pérdida de vidas. Desde la ética deontológica, no cometiste un acto violento.</p> <p>¿Habrías actuado diferente si el hombre gordo fuera un criminal o un ser querido?</p>
+                    `;
+                } else {
+                    contenido.innerHTML = `
+                        <p>El tranvía se detiene al chocar con el hombre gordo. Las cinco personas se salvan.</p>
+                        <p><strong>Filosofía detrás de esto:</strong> Elegiste el utilitarismo (salvar más vidas), pero con un coste emocional mayor: tuviste que empujar físicamente a alguien.</p>
+                                <p>Estudios muestran que solo el 10% de las personas elegirían esta opción, frente al 90% que accionaría una palanca.</p>
+                    `;
+                }
+            });
+        });
+        
+        document.querySelector('.boton-reflexion').addEventListener('click', function() {
+            alert("Tómate un momento para reflexionar: ¿Cómo te hace sentir tu decisión? ¿Cambiarías tu elección si la situación fuera diferente?");
+        });
+    </script>
+</body>
+</html>

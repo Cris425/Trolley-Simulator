@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    overflow: auto;
+    min-height: 100vh;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+      .tituloprincipal {
+        display: flex;
+        font-size: 100px;
+        font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 10px white;
+        width: max-content;
+        margin-bottom: 0;
+        background-color: rgba(255, 255, 255, 0.349);
+        padding-left: 15px;
+        padding-right: 15px;
+        color: black;
+        margin-top: 0;
+        order: 1
+      }
+      
+      .fondovideo {
+            
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+        filter: brightness(0.6) contrast(1.2); /* Oscurece el video */
+      }
+      .contenido {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+
+      }
+      
+      h3 {
+        color:white;
+        z-index: 2;
+      }
+      .subtitulo {
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        z-index: 2;
+      }
+      p {
+        display: inline-block;
+        color: white;
+        font-size: 20px;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        background-color: rgba(0, 0, 0, 0.582);
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+      .fraseinicio {
+        display: flex;
+        justify-content: center;
+      }
+      .textoinicio {
+    display: block;
+    max-width: 800px; /* Ancho máximo del cuadro */
+    margin: 0 auto; /* Centrado horizontal */
+    padding: 20px;
+    background-color: rgba(12, 12, 12, 0.678); /* Blanco con 80% opacidad */
+    
+    border-radius: 10px; /* Esquinas redondeadas */
+    color: white; 
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    z-index: 2;
+      }
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Espacio entre botones */
+    margin-top: 30px;
+    z-index: 2;
+}
+.boton-informacion, 
+.boton-comenzar {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px; /* Bordes muy redondeados */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.boton-informacion {
+     background: rgba(0, 180, 255, 0.7); /* Azul eléctrico */
+    color: white;
+    border: 2px solid #00B4FF;
+}
+
+.boton-informacion:hover {
+    background: rgba(0, 180, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
+    transform: translateY(-3px);
+}
+.boton-comenzar {
+    background: rgba(0, 180, 255, 0.7); /* Azul eléctrico */
+    color: white;
+    border: 2px solid #00B4FF;
+}
+
+.boton-comenzar:hover {
+    background: rgba(0, 180, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 180, 255, 0.5);
+    transform: translateY(-3px);
+}
+.boton-informacion:active, 
+.boton-comenzar:active {
+    transform: scale(0.95); /* Efecto de pulsación */
+}
+
+      @media (max-width:600px) {
+        .tituloprincipal {
+          display: block;
+          font-size: 50px;
+        }
+        nav {
+          flex-direction: column;
+          display: block;
+        }
+      }

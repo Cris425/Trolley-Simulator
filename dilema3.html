@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilema del Doctor | Trolley Simulator</title>
+    <link rel="stylesheet" href="dilema3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Volver a INICIO</a>
+        <a href="comenzar.html" class="volver-dilemas">Volver a Dilemas</a>
+    </nav>
+    <video autoplay loop muted class="fondovideo">
+        <source src="fondoinicio.mp4" type="video/mp4" />
+    </video>
+
+    <div class="main-content">
+        <section class="contenido">   
+            <h1 class="titulo-dilema">EL DOCTOR</h1>
+        </section>
+        
+        <section class="escenario">
+
+            
+            <div class="descripcion-dilema">
+                <p>Eres un médico en un hospital. Tienes cinco pacientes que morirán en horas si no reciben trasplantes inmediatos de órganos (necesitan: corazón, hígado, riñones y pulmones). En la sala de espera hay un paciente sano que vino para un chequeo rutinario. Si decides sacrificarlo, podrías salvar a los cinco. ¿Qué harías?</p>
+                
+                <div class="opciones">
+                    <div class="opcion">
+                        <h3>Opción 1</h3>
+                        <p>No intervenir y dejar morir a los cinco pacientes</p>
+                        <button class="boton-opcion" data-consecuencia="no-intervenir">Elegir esta opción</button>
+                    </div>
+                    
+                    <div class="opcion">
+                        <h3>Opción 2</h3>
+                        <p>Sacrificar al paciente sano para obtener sus órganos y salvar a cinco</p>
+                        <button class="boton-opcion" data-consecuencia="intervenir">Elegir esta opción</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <section class="consecuencia hidden" id="consecuencia">
+            <h2>Tus Decisiones Tienen Consecuencias</h2>
+            <div id="contenido-consecuencia"></div>
+            <button class="boton-reflexion">Reflexionar sobre esta decisión</button>
+        </section>
+                       <section class="otras-opciones">
+            <a href="index.html" class="boton-variacion">Volver al Inicio</a>
+        </section>
+    </div>
+
+    <script>
+        // ... (el script anterior se mantiene igual) ...
+
+        // Agregar funcionalidad al nuevo botón
+      
+           
+            
+            // Cambiar las opciones
+           
+            
+            // Actualizar las consecuencias en el script
+            const botones = document.querySelectorAll('.boton-opcion');
+            botones.forEach(boton => {
+                boton.addEventListener('click', function() {
+                    const consecuencia = this.getAttribute('data-consecuencia');
+                    const contenido = document.getElementById('contenido-consecuencia');
+                    
+                    if(consecuencia.includes('version2')) {
+                        if(consecuencia === 'no-intervenir-version2') {
+                            contenido.innerHTML = `
+                                <p>Los cinco pacientes han muerto. El paciente sano sobrevivió.</p>
+                                <p><strong>Filosofía:</strong> Actuaste bajo el imperativo categórico: "No usar personas como medios". Moralmente coherente, pero con resultado trágico.</p>
+                            <p>¿Cambiarías tu decisión si los pacientes fueran niños o científicos buscando la cura del cáncer?</p>
+                            `;
+                        } else {
+                            contenido.innerHTML = `
+                                <p>Los cinco pacientes fueron salvados. El paciente sano murió.</p>
+                                <p><strong>Filosofía:</strong> Maximizaste vidas salvadas (5 > 1), pero violaste el juramento hipocrático y derechos individuales.</p>
+                            <p>Este dilema expone el conflicto entre ética médica y cálculo utilitario. ¿Dónde trazarías el límite?</p>
+                            `;
+                        }
+                    }
+                });
+            });
+            
+            // Desplazar hacia arriba para ver los cambios
+            window.scrollTo({top: 0, behavior: 'smooth'});
+       
+    </script>
+    
+        
+    </div>
+
+    <script>
+        document.querySelectorAll('.boton-opcion').forEach(boton => {
+            boton.addEventListener('click', function() {
+                const consecuencia = this.getAttribute('data-consecuencia');
+                const seccionConsecuencia = document.getElementById('consecuencia');
+                const contenido = document.getElementById('contenido-consecuencia');
+                
+                // Remover clase hidden para mostrar la sección
+                seccionConsecuencia.classList.remove('hidden');
+                
+                // Desplazarse a la sección de consecuencia
+                seccionConsecuencia.scrollIntoView({ behavior: 'smooth' });
+                
+                // Mostrar la consecuencia correspondiente
+                if(consecuencia === 'no-intervenir') {
+                    contenido.innerHTML = `
+                        <p>Los cinco pacientes han muerto. El paciente sano sobrevivió.</p>
+                                <p><strong>Filosofía:</strong> Actuaste bajo el imperativo categórico: "No usar personas como medios". Moralmente coherente, pero con resultado trágico.</p>
+                            <p>¿Cambiarías tu decisión si los pacientes fueran niños o científicos buscando la cura del cáncer?</p>
+                    `;
+                } else {
+                    contenido.innerHTML = `
+                         <p>Los cinco pacientes fueron salvados. El paciente sano murió.</p>
+                                <p><strong>Filosofía:</strong> Maximizaste vidas salvadas (5 > 1), pero violaste el juramento hipocrático y derechos individuales.</p>
+                            <p>Este dilema expone el conflicto entre ética médica y cálculo utilitario. ¿Dónde trazarías el límite?</p>
+                    `;
+                }
+            });
+        });
+        
+        document.querySelector('.boton-reflexion').addEventListener('click', function() {
+            alert("Tómate un momento para reflexionar: ¿Cómo te hace sentir tu decisión? ¿Cambiarías tu elección si la situación fuera diferente?");
+        });
+    </script>
+</body>
+</html>
